@@ -20,11 +20,8 @@ const ResetPass = () => {
           resizeMode="contain"
         />
 
-        <Text style={tw`text-xl font-bold mb-2`}>Reset Password Success!</Text>
-        <Text style={tw`text-center text-gray-600 mb-6`}>
-          Please login to app again with your {'\n'}
-          New password 
-        </Text>
+        <Text style={tw`text-xl font-bold mb-2`}>Verification Success</Text>
+      
       </View>
     </KeyboardAvoidingView>
   );
