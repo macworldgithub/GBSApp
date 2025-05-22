@@ -63,7 +63,7 @@ export default function Onboarding({ navigation }) {
           {/* Next button */}
           <TouchableOpacity
             style={{ backgroundColor: "#ed292e", marginTop: 24, paddingVertical: 14, borderRadius: 12, alignItems: "center" }}
-            onPress={() => navigation.navigate("NextOnboarding")}
+            onPress={() => navigation.navigate("OnboardingTwo")}
           >
             <Text style={{ color: "#fff", fontWeight: "600", fontSize: 16 }}>Next</Text>
           </TouchableOpacity>

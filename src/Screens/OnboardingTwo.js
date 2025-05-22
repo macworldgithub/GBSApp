@@ -8,6 +8,7 @@ import {
   StatusBar,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import Onboarding from "./Onboarding";
 
 export default function OnboardingTwo({ navigation }) {
   return (
@@ -55,7 +56,7 @@ export default function OnboardingTwo({ navigation }) {
         {/* Button */}
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("OnboardingThree")}
+          onPress={() => navigation.navigate("")}
         >
           <Text style={styles.buttonText}>Get Started</Text>
           <Ionicons name="arrow-forward" size={18} color="#fff" />
