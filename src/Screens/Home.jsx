@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import { View, Text, TextInput, FlatList, Image, TouchableOpacity, ScrollView } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import { Ionicons, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
+import Cards from '../../components/Cards';
 
 const upcomingEvents = [
     {
@@ -22,37 +24,13 @@ const upcomingEvents = [
     },
 ];
 
-const popularEvents = [
-    {
-        id: '1',
-        title: 'BMTH Tour 2024',
-        location: 'Mandala Krida, Yogyakarta',
-        price: '$60.00 - $300.00',
-        image: require('../../assets/popular1.png'),
-    },
-    {
-        id: '2',
-        title: 'Moshing Metal Fest 2024',
-        location: 'Sleman, Yogyakarta',
-        price: '$15.00 - $30.00',
-        image: require('../../assets/popular2.png'),
-    },
-    {
-        id: '3',
-        title: 'Moshing Metal Fest II 2024',
-        location: 'Maguwo, Yogyakarta',
-        price: '$15.00 - $30.00',
-        image: require('../../assets/popular3.png'),
-    },
-];
-
 export default function Home() {
     const [likedEvents, setLikedEvents] = useState({});
     const toggleLike = (id) => {
         setLikedEvents((prev) => ({ ...prev, [id]: !prev[id] }));
     };
     return (
-        <ScrollView style={tw`bg-white px-4 pt-8 top-4`}> {/* Increased top margin with pt-8 */}
+        <ScrollView style={tw`bg-white px-4 pt-8 top-4`}>
             {/* Location & Notifications */}
             <View style={tw`flex-row justify-between items-center mb-4`}>
                 <View>
@@ -119,30 +97,10 @@ export default function Home() {
                 <View style={tw`flex-row justify-between mb-2`}>
                     <Text style={tw`font-semibold`}>Popular Events</Text>
                     <Text style={tw`text-red-500 text-sm`}>See all events</Text>
-                </View>
 
-                <FlatList
-                    data={popularEvents}
-                    keyExtractor={(item) => item.id}
-                    showsVerticalScrollIndicator={false}
-                    renderItem={({ item }) => (
-                        <View style={tw`flex-row items-center bg-gray-100 rounded-lg p-2 mb-2`}>
-                            <Image source={item.image} style={{ width: 60, height: 60, borderRadius: 8, marginRight: 10 }} />
-                            <View style={tw`flex-1`}>
-                                <Text style={tw`font-semibold text-sm`}>{item.title}</Text>
-                                <Text style={tw`text-red-500 text-xs`}>{item.price}</Text>
-                                <Text style={tw`text-gray-500 text-xs`}>{item.location}</Text>
-                            </View>
-                            <TouchableOpacity onPress={() => toggleLike(item.id)}>
-                                <FontAwesome
-                                    name={likedEvents[item.id] ? 'heart' : 'heart-o'}
-                                    size={16}
-                                    color={likedEvents[item.id] ? 'red' : '#9CA3AF'}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                    )}
-                />
+                </View>
+                    <Cards/>
+
             </View>
         </ScrollView>
     );
