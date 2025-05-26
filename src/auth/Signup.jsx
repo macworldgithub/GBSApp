@@ -9,12 +9,13 @@ import {
 } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import { Ionicons } from '@expo/vector-icons';
-
+import { useNavigation } from '@react-navigation/native';
 export default function Signup() {
   const [rememberMe, setRememberMe] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const navigation = useNavigation();
 
   return (
     <ScrollView contentContainerStyle={tw`flex-1 justify-center px-6 bg-white`}>
@@ -24,7 +25,8 @@ export default function Signup() {
       <Text style={tw`text-sm text-gray-500 mb-6`}>
         Already have an account?{' '}
         <Text 
-        style={tw`text-red-500 font-semibold`}>Sign In</Text>
+        style={tw`text-red-500 font-semibold`}
+        onPress={() => navigation.navigate("Signin")}>Sign In</Text>
       </Text>
 
       {/* Email Input */}

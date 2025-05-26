@@ -56,16 +56,17 @@ export default function OnboardingTwo({ navigation }) {
         {/* Button */}
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("Signin")}
-        >
+          onPress={() => navigation.navigate("MemberLocation")}>
           <Text style={styles.buttonText}>Get Started</Text>
           <Ionicons name="arrow-forward" size={18} color="#fff" />
         </TouchableOpacity>
 
         {/* Sign In */}
-        <Text style={styles.signInText}>
-          Already have an account? <Text style={styles.signInBold}>Sign In</Text>
-        </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Signin')}>
+          <Text style={styles.signInText}>
+            Already have an account? <Text style={styles.signInBold}>Sign In</Text>
+          </Text>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   );

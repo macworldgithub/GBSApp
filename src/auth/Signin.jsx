@@ -11,13 +11,13 @@ import {
 } from 'react-native';
 import { FontAwesome, Feather } from '@expo/vector-icons';
 import tw from 'tailwind-react-native-classnames';
-
+import { useNavigation } from '@react-navigation/native';
 export default function Signin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-
+  const navigation = useNavigation();
   const handleLogin = () => {
     console.log('Logging in with:', email, password);
   };
@@ -34,7 +34,8 @@ export default function Signin() {
         <Text style={tw`text-2xl font-bold text-gray-900 mb-4`}>your account</Text>
 
         <Text style={tw`text-sm text-gray-600 mb-6`}>
-          Don’t have an account? <Text style={tw`text-red-500 font-semibold`}>Sign Up</Text>
+          Don’t have an account? <Text style={tw`text-red-500 font-semibold`}
+                    onPress={() => navigation.navigate("Signup")}>Sign Up</Text>
         </Text>
 
         {/* Email Input */}

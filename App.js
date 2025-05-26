@@ -9,7 +9,12 @@ import OnboardingTwo from './src/Screens/OnboardingTwo';
 import Home from './src/Screens/Home';
 import Signup from './src/auth/Signup';
 import Signin from './src/auth/Signin';
-
+import SearchEvent from './src/Screens/SearchEvent';
+import Notification from './src/Screens/Notification';
+import UpcomingEvent from './src/Screens/UpcomingEvent';
+import PopularEvent from './src/Screens/PopularEvent';
+import DetailEvent from './src/Screens/DetailEvent';
+import MemberLocation from './src/Screens/MemberLocation';
 // import ProfileScreen from './src/Screens/ProfileScreen';
 const Stack = createStackNavigator();
 export default function App() {
@@ -46,7 +51,12 @@ export default function App() {
         <Stack.Screen name="Signup" component={Signup}/>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name='Signin' component={Signin}/>
-
+        <Stack.Screen name="SearchEvent" component={SearchEvent} />
+        <Stack.Screen name="Notification" component={Notification} />
+        <Stack.Screen name="UpcomingEvent" component={UpcomingEvent} />
+        <Stack.Screen name="PopularEvent" component={PopularEvent} />
+        <Stack.Screen name="DetailEvent" component={DetailEvent} />
+        <Stack.Screen name="MemberLocation" component={MemberLocation} />
         {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
@@ -58,3 +68,4 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
