@@ -16,7 +16,7 @@ export default function Signin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false); // ✅ New state for checkbox
+  const [rememberMe, setRememberMe] = useState(false);
 
   const handleLogin = () => {
     console.log('Logging in with:', email, password);
@@ -28,7 +28,6 @@ export default function Signin() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
       <ScrollView contentContainerStyle={tw`flex-grow justify-start px-6 pt-10`}>
-        {/* ✅ Removed extra top margin (was pt-20 before) */}
 
         {/* Title */}
         <Text style={tw`text-2xl font-bold text-gray-900 mb-1`}>Sign in to</Text>
@@ -39,54 +38,52 @@ export default function Signin() {
         </Text>
 
         {/* Email Input */}
-        <View style={tw`flex-row items-center border rounded-lg px-3 py-2 mb-4 bg-gray-100`}>
-        <FontAwesome name="envelope" size={16} color="#6B7280" />
-        <TextInput
-          style={tw`flex-1 ml-2 text-sm text-gray-900`}
-          placeholder="Enter your email"
-          placeholderTextColor="#9CA3AF"
-          value={email}
-          onChangeText={setEmail}
-          keyboardType="email-address"
-        />
-      </View>
+        <View style={tw`flex-row items-center border rounded-lg px-3 py-1 mb-4 bg-gray-100`}>
+          <FontAwesome name="envelope" size={16} color="#6B7280" />
+          <TextInput
+            style={tw`flex-1 ml-2 text-sm text-gray-900`}
+            placeholder="Enter your email"
+            placeholderTextColor="#9CA3AF"
+            value={email}
+            onChangeText={setEmail}
+            keyboardType="email-address"
+          />
+        </View>
 
-      {/* Password Input */}
-      <View style={tw`flex-row items-center border border-red-300 rounded-lg px-3 py-2 mb-4 bg-gray-100`}>
-        <FontAwesome name="lock" size={16} color="#6B7280" />
-        <TextInput
-          style={tw`flex-1 ml-2 text-sm text-gray-900`}
-          placeholder="Enter your password"
-          placeholderTextColor="#9CA3AF"
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry={!showPassword}
-        />
-        <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-          <Feather name={showPassword ? 'eye-off' : 'eye'} size={16} color="#6B7280" />
-        </TouchableOpacity>
-      </View>
+        {/* Password Input */}
+        <View style={tw`flex-row items-center border border-red-300 rounded-lg px-3 py-1 mb-4 bg-gray-100`}>
+          <FontAwesome name="lock" size={16} color="#6B7280" />
+          <TextInput
+            style={tw`flex-1 ml-2 text-sm text-gray-900`}
+            placeholder="Enter your password"
+            placeholderTextColor="#9CA3AF"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry={!showPassword}
+          />
+          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+            <Feather name={showPassword ? 'eye-off' : 'eye'} size={16} color="#6B7280" />
+          </TouchableOpacity>
+        </View>
 
         {/* Remember Me & Forgot Password */}
-      <View style={tw`flex-row justify-between items-center mb-6`}>
-  <TouchableOpacity
-    onPress={() => setRememberMe(!rememberMe)}
-    style={tw`flex-row items-center`}
-  >
-    {/* ✅ Checkbox toggle with red checkmark icon */}
-    <View style={tw`w-4 h-4 mr-2 border border-gray-400 rounded items-center justify-center`}>
-      {rememberMe && (
-        <FontAwesome name="check" size={10} color="#EF4444" />
-      )}
-    </View>
-    <Text style={tw`text-sm text-gray-700`}>Remember me</Text>
-  </TouchableOpacity>
+        <View style={tw`flex-row justify-between items-center mb-6`}>
+          <TouchableOpacity
+            onPress={() => setRememberMe(!rememberMe)}
+            style={tw`flex-row items-center`}
+          >
+            <View style={tw`w-4 h-4 mr-2 border border-gray-400 rounded items-center justify-center`}>
+              {rememberMe && (
+                <FontAwesome name="check" size={10} color="#EF4444" />
+              )}
+            </View>
+            <Text style={tw`text-sm text-gray-700`}>Remember me</Text>
+          </TouchableOpacity>
 
-  <TouchableOpacity>
-    <Text style={tw`text-sm text-red-500 font-semibold`}>Forgot Password</Text>
-  </TouchableOpacity>
-</View>
-
+          <TouchableOpacity>
+            <Text style={tw`text-sm text-red-500 font-semibold`}>Forgot Password</Text>
+          </TouchableOpacity>
+        </View>
 
         {/* Sign In Button */}
         <TouchableOpacity
@@ -103,14 +100,14 @@ export default function Signin() {
           <View style={tw`flex-1 h-px bg-gray-300`} />
         </View>
 
-        {/* Social Buttons with Gaps ✅ */}
-        <View style={tw`mb-4`}> {/* ✅ Increased vertical gap */}
-          <TouchableOpacity style={tw`flex-row items-center justify-center border rounded-xl py-3 bg-white`}>
+        {/* Social Buttons */}
+        <View style={tw`mb-4`}>
+          <TouchableOpacity style={tw`flex-row items-center justify-center border rounded-xl py-3 bg-white mb-3`}>
             <Image source={{ uri: 'https://img.icons8.com/color/48/google-logo.png' }} style={{ width: 20, height: 20, marginRight: 10 }} />
             <Text style={tw`text-sm`}>Sign in with Google</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={tw`flex-row items-center justify-center border rounded-xl py-3 bg-white`}>
+          <TouchableOpacity style={tw`flex-row items-center justify-center border rounded-xl py-3 bg-white mb-3`}>
             <Image source={{ uri: 'https://img.icons8.com/color/48/facebook-new.png' }} style={{ width: 20, height: 20, marginRight: 10 }} />
             <Text style={tw`text-sm`}>Sign in with Facebook</Text>
           </TouchableOpacity>

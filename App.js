@@ -1,17 +1,17 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import { useEffect, useRef, useState } from 'react';
-import { Animated } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Animated, View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Cards from './components/Cards';
+// ✅ Screens
 import Splash from './src/Screens/Splash';
 import Onboarding from './src/Screens/Onboarding';
 import OnboardingTwo from './src/Screens/OnboardingTwo';
 import Home from './src/Screens/Home';
+import Signup from './src/auth/Signup';
+import Signin from './src/auth/Signin';
 
+// import ProfileScreen from './src/Screens/ProfileScreen';
 const Stack = createStackNavigator();
-
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
   const splashOpacity = useRef(new Animated.Value(1)).current;
@@ -25,30 +25,36 @@ export default function App() {
       }).start(() => {
         setShowSplash(false);
       });
-    }, 4000); // 4 seconds delay
+    }, 4000); // 4 seconds
 
     return () => clearTimeout(timer);
-  }, [splashOpacity]);
+  }, []);
 
   if (showSplash) {
     return (
-      <Animated.View style={{ flex: 1, opacity: splashOpacity }}>
+      <Animated.View style={[styles.splashContainer, { opacity: splashOpacity }]}>
         <Splash />
       </Animated.View>
     );
   }
 
   return (
-    <>
-    {/* <OnboardingTwo /> */}
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Onboarding">
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="OnboardingTwo" component={OnboardingTwo} />
+        <Stack.Screen name="Signup" component={Signup}/>
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Cards" component={Cards} />
+        <Stack.Screen name='Signin' component={Signin}/>
+
+        {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
-    </>
   );
 }
+
+const styles = StyleSheet.create({
+  splashContainer: {
+    flex: 1,
+  },
+});

@@ -1,34 +1,38 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
-import { FontAwesome, Feather } from '@expo/vector-icons';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+} from 'react-native';
 import tw from 'tailwind-react-native-classnames';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function Signup() {
+  const [rememberMe, setRememberMe] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-const [rememberMe, setRememberMe] = useState(false);
-
-  const handleSignUp = () => {
-    console.log('Signing up with', email, password);
-  };
 
   return (
-    <ScrollView contentContainerStyle={tw`flex-grow justify-center px-6 bg-white py-2 mb-20`}>
-      {/* Heading */}
-      <Text style={tw`text-2xl font-bold text-black mb-2`}>Create new{"\n"}account</Text>
-      <Text style={tw`mb-4 text-sm text-gray-500`}>
+    <ScrollView contentContainerStyle={tw`flex-1 justify-center px-6 bg-white`}>
+      {/* Header */}
+      <Text style={tw`text-2xl font-bold text-gray-900 mb-1`}>Create new</Text>
+      <Text style={tw`text-2xl font-bold text-gray-900 mb-4`}>account</Text>
+      <Text style={tw`text-sm text-gray-500 mb-6`}>
         Already have an account?{' '}
-        <Text style={tw`text-red-500`}>Sign In</Text>
+        <Text 
+        style={tw`text-red-500 font-semibold`}>Sign In</Text>
       </Text>
 
       {/* Email Input */}
-      <View style={tw`flex-row items-center border rounded-lg px-3 py-2 mb-4 bg-gray-100`}>
-        <FontAwesome name="envelope" size={16} color="#6B7280" />
+      <View style={tw`flex-row items-center bg-white border rounded-xl px-4 py-1 mb-4`}>
+        <Ionicons name="mail-outline" size={20} color="gray" />
         <TextInput
-          style={tw`flex-1 ml-2 text-sm text-gray-900`}
           placeholder="Enter your email"
-          placeholderTextColor="#9CA3AF"
+          style={tw`ml-2 flex-1 text-sm text-gray-700`}
           value={email}
           onChangeText={setEmail}
           keyboardType="email-address"
@@ -36,73 +40,65 @@ const [rememberMe, setRememberMe] = useState(false);
       </View>
 
       {/* Password Input */}
-      <View style={tw`flex-row items-center border border-red-300 rounded-lg px-3 py-2 mb-4 bg-gray-100`}>
-        <FontAwesome name="lock" size={16} color="#6B7280" />
+      <View style={tw`flex-row items-center border rounded-xl px-4 py-1 mb-2`}>
+        <Ionicons name="lock-closed-outline" size={20} color="gray" />
         <TextInput
-          style={tw`flex-1 ml-2 text-sm text-gray-900`}
           placeholder="Enter your password"
-          placeholderTextColor="#9CA3AF"
+          style={tw`ml-2 flex-1 text-sm text-gray-700`}
+          secureTextEntry={!showPassword}
           value={password}
           onChangeText={setPassword}
-          secureTextEntry={!showPassword}
         />
         <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-          <Feather name={showPassword ? 'eye-off' : 'eye'} size={16} color="#6B7280" />
+          <Ionicons name={showPassword ? 'eye-off-outline' : 'eye-outline'} size={20} color="gray" />
         </TouchableOpacity>
       </View>
 
-      {/* Remember me */}
-     <View style={tw`flex-row justify-between items-center mb-6`}>
-  <TouchableOpacity
-    onPress={() => setRememberMe(!rememberMe)}
-    style={tw`flex-row items-center`}
-  >
-    {/* ✅ Checkbox toggle with red checkmark icon */}
-    <View style={tw`w-4 h-4 mr-2 border border-gray-400 rounded items-center justify-center`}>
-      {rememberMe && (
-        <FontAwesome name="check" size={10} color="#EF4444" />
-      )}
-    </View>
-    <Text style={tw`text-sm text-gray-700`}>Remember me</Text>
-  </TouchableOpacity>
-</View>
+      {/* Remember Me (Custom Checkbox for Expo) */}
+      <View style={tw`flex-row items-center mb-6`}>
+        <TouchableOpacity onPress={() => setRememberMe(!rememberMe)} style={tw`mr-2`}>
+          <Ionicons
+            name={rememberMe ? 'checkbox-outline' : 'square-outline'}
+            size={24}
+            color={rememberMe ? '#EF4444' : 'gray'}
+          />
+        </TouchableOpacity>
+        <Text style={tw`text-sm text-gray-700`}>Remember me</Text>
+      </View>
 
       {/* Sign Up Button */}
-      <TouchableOpacity
-        onPress={handleSignUp}
-        style={tw`bg-red-500 rounded-lg py-3 mb-6 items-center`}
-      >
-        <Text style={tw`text-white font-bold`}>Sign Up</Text>
+      <TouchableOpacity style={tw`bg-red-500 py-3 rounded-xl mb-6`}>
+        <Text style={tw`text-white text-center font-semibold`}>Sign Up</Text>
       </TouchableOpacity>
 
-      {/* OR Divider */}
-      <View style={tw`flex-row items-center mb-4`}>
+      {/* Divider */}
+      <View style={tw`flex-row items-center mb-6`}>
         <View style={tw`flex-1 h-px bg-gray-300`} />
-        <Text style={tw`px-2 text-sm text-gray-400`}>or sign up with</Text>
+        <Text style={tw`mx-2 text-gray-400 text-xs`}>or sign up with</Text>
         <View style={tw`flex-1 h-px bg-gray-300`} />
       </View>
 
       {/* Social Buttons */}
-      <View style={tw``}>
-        <TouchableOpacity style={tw`flex-row items-center justify-center border rounded-lg py-2`}>
-          <Image source={{ uri: 'https://img.icons8.com/color/48/google-logo.png' }} style={{ width: 20, height: 20, marginRight: 8 }} />
+      <View style={tw`mb-8`}>
+        <TouchableOpacity style={tw`flex-row items-center justify-center border rounded-xl py-3 bg-white mb-3`}>
+          <Image source={{ uri: 'https://img.icons8.com/color/48/google-logo.png' }} style={{ width: 20, height: 20, marginRight: 10 }} />
           <Text style={tw`text-sm`}>Sign up with Google</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={tw`flex-row items-center justify-center border rounded-lg py-2`}>
-          <Image source={{ uri: 'https://img.icons8.com/color/48/facebook-new.png' }} style={{ width: 20, height: 20, marginRight: 8 }} />
+        <TouchableOpacity style={tw`flex-row items-center justify-center border rounded-xl py-3 bg-white mb-3`}>
+          <Image source={{ uri: 'https://img.icons8.com/color/48/facebook-new.png' }} style={{ width: 20, height: 20, marginRight: 10 }} />
           <Text style={tw`text-sm`}>Sign up with Facebook</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={tw`flex-row items-center justify-center border rounded-lg py-2`}>
-          <Image source={{ uri: 'https://img.icons8.com/ios-filled/50/mac-os.png' }} style={{ width: 20, height: 20, marginRight: 8 }} />
+        <TouchableOpacity style={tw`flex-row items-center justify-center border rounded-xl py-3 bg-white`}>
+          <Image source={{ uri: 'https://img.icons8.com/ios-filled/50/mac-os.png' }} style={{ width: 20, height: 20, marginRight: 10 }} />
           <Text style={tw`text-sm`}>Sign up with Apple</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Terms & Policy */}
-      <Text style={tw`text-xs text-center text-gray-500 mt-6`}>
-        By clicking “Sign Up” you agree to Recognotes{' '}
+      {/* Terms & Conditions */}
+      <Text style={tw`text-xs text-gray-400 text-center px-6 mb-6`}>
+        By clicking “Sign Up” you agree to Recognote's{' '}
         <Text style={tw`text-red-500`}>Term of Use</Text> and{' '}
         <Text style={tw`text-red-500`}>Privacy Policy</Text>
       </Text>
