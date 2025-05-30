@@ -27,13 +27,13 @@ const menuItems = [
     id: '4',
     label: 'Payment Method',
     icon: 'credit-card',
-    navigateTo: 'PaymentSettings',
+    navigateTo: 'Payment Settings',
   },
   {
     id: '5',
     label: 'General Settings',
     icon: 'cogs',
-    navigateTo: 'Settings',
+    navigateTo: 'GeneralSetting',
   },
   {
     id: '6',

@@ -24,6 +24,9 @@ import PaymentSettings from './src/Screens/PaymentSettings';
 import PaymentMethod from "./src/Screens/PaymentMethod";
 import AddPaymentMethod from "./src/Screens/AddPaymentMethod";
 import PaymentSuccess from "./src/Screens/PaymentSuccess";
+import GeneralSetting from "./src/Screens/GeneralSetting";
+import Theme from './src/Screens/Theme';
+import LanguageSetting from "./src/Screens/LanguageSetting";
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -75,6 +78,9 @@ export default function App() {
         <Stack.Screen name='AddPaymentMethod' component={AddPaymentMethod}/>
         <Stack.Screen name="PaymentMethod" component={PaymentMethod} /> 
         <Stack.Screen name='PaymentSuccess' component={PaymentSuccess}/>
+        <Stack.Screen name='GeneralSetting' component={GeneralSetting}/>
+        <Stack.Screen name='Theme' component={Theme}/>
+        <Stack.Screen name='LanguageSetting'component={LanguageSetting}/>
 
       </Stack.Navigator>
     </NavigationContainer>
