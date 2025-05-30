@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import * as React from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Animated, View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-// ✅ Screens
 import Splash from './src/Screens/Splash';
 import Onboarding from './src/Screens/Onboarding';
 import OnboardingTwo from './src/Screens/OnboardingTwo';
@@ -18,8 +18,8 @@ import MemberLocation from './src/Screens/MemberLocation';
 import Profile from './src/Screens/Profile';
 import EditProfile from "./src/Screens/EditProfile";
 import AccountSecurity from "./src/Screens/AccountSecurity"
-// import QRCode from "./src/Screens/QRCode";
-// import QRScanner from "./src/Screens/Scanner"
+import QRCodeScreen from "./src/Screens/QRCodeScreen";
+import Scanner from "./src/Screens/Scanner";
 import PaymentSettings from './src/Screens/PaymentSettings';
 import PaymentMethod from "./src/Screens/PaymentMethod";
 import AddPaymentMethod from "./src/Screens/AddPaymentMethod";
@@ -82,8 +82,8 @@ export default function App() {
         <Stack.Screen name='Profile' component={Profile}/>
         <Stack.Screen name='EditProfile' component={EditProfile}/>
         <Stack.Screen name='AccountSecurity' component={AccountSecurity}/>
-        {/* <Stack.Screen name='QRCode' component={QRCode}/> */}
-        {/* <Stack.Screen name='Scanner' component={QRScanner}/> */}
+        <Stack.Screen name='QRCodeScreen' component={QRCodeScreen}/>
+        <Stack.Screen name='Scanner' component={Scanner}/>
         <Stack.Screen name='PaymentSettings' component={PaymentSettings}/>
         <Stack.Screen name='AddPaymentMethod' component={AddPaymentMethod}/>
         <Stack.Screen name="PaymentMethod" component={PaymentMethod} /> 

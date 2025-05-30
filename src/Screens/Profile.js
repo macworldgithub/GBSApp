@@ -21,7 +21,7 @@ const menuItems = [
     id: '3',
     label: 'Scan Member',
     icon: 'qrcode',
-    navigateTo: 'QRCode',
+    navigateTo: 'QRCodeScreen',
   },
   {
     id: '4',
