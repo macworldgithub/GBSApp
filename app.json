@@ -4,7 +4,8 @@
     "slug": "GBSApp",
     "version": "1.0.0",
     "plugins": [
-      "expo-barcode-scanner"
+      "expo-barcode-scanner",
+      "expo-audio"
     ]
   }
 }

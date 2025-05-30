@@ -27,6 +27,16 @@ import PaymentSuccess from "./src/Screens/PaymentSuccess";
 import GeneralSetting from "./src/Screens/GeneralSetting";
 import Theme from './src/Screens/Theme';
 import LanguageSetting from "./src/Screens/LanguageSetting";
+import AllChat from "./src/Screens/AllChat"; 
+import Chat from "./src/Screens/Chat"; 
+import CreateGroup from './src/Screens/CreateGroup';
+import GroupInfo from "./src/Screens/GroupInfo";
+import GroupChat from './src/Screens/GroupChat';
+import Gallery from "./src/Screens/Gallery";
+import MuteGroup from "./src/Screens/MuteGroup";
+import FavoriteEmpty from './src/Screens/FavoriteEmpty';
+import Favorite from "./src/Screens/Favorite";
+
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -81,6 +91,15 @@ export default function App() {
         <Stack.Screen name='GeneralSetting' component={GeneralSetting}/>
         <Stack.Screen name='Theme' component={Theme}/>
         <Stack.Screen name='LanguageSetting'component={LanguageSetting}/>
+        <Stack.Screen name='AllChat' component={AllChat}/>
+        <Stack.Screen name='Chat' component={Chat}/>
+        <Stack.Screen name='CreateGroup' component={CreateGroup}/>
+        <Stack.Screen name='GroupChat' component={GroupChat}/>
+        <Stack.Screen name='GroupInfo' component={GroupInfo}/>
+        <Stack.Screen name="Gallery" component={Gallery} />
+        <Stack.Screen name="MuteGroup" component={MuteGroup} />
+        <Stack.Screen name='FavoriteEmpty' component={FavoriteEmpty}/>
+        <Stack.Screen name='Favorite' component={Favorite}/>
 
       </Stack.Navigator>
     </NavigationContainer>
