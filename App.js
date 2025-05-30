@@ -15,7 +15,16 @@ import UpcomingEvent from './src/Screens/UpcomingEvent';
 import PopularEvent from './src/Screens/PopularEvent';
 import DetailEvent from './src/Screens/DetailEvent';
 import MemberLocation from './src/Screens/MemberLocation';
-// import ProfileScreen from './src/Screens/ProfileScreen';
+import Profile from './src/Screens/Profile';
+import EditProfile from "./src/Screens/EditProfile";
+import AccountSecurity from "./src/Screens/AccountSecurity"
+// import QRCode from "./src/Screens/QRCode";
+// import QRScanner from "./src/Screens/Scanner"
+import PaymentSettings from './src/Screens/PaymentSettings';
+import PaymentMethod from "./src/Screens/PaymentMethod";
+import AddPaymentMethod from "./src/Screens/AddPaymentMethod";
+import PaymentSuccess from "./src/Screens/PaymentSuccess";
+
 const Stack = createStackNavigator();
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -57,7 +66,16 @@ export default function App() {
         <Stack.Screen name="PopularEvent" component={PopularEvent} />
         <Stack.Screen name="DetailEvent" component={DetailEvent} />
         <Stack.Screen name="MemberLocation" component={MemberLocation} />
-        {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
+        <Stack.Screen name='Profile' component={Profile}/>
+        <Stack.Screen name='EditProfile' component={EditProfile}/>
+        <Stack.Screen name='AccountSecurity' component={AccountSecurity}/>
+        {/* <Stack.Screen name='QRCode' component={QRCode}/> */}
+        {/* <Stack.Screen name='Scanner' component={QRScanner}/> */}
+        <Stack.Screen name='PaymentSettings' component={PaymentSettings}/>
+        <Stack.Screen name='AddPaymentMethod' component={AddPaymentMethod}/>
+        <Stack.Screen name="PaymentMethod" component={PaymentMethod} /> 
+        <Stack.Screen name='PaymentSuccess' component={PaymentSuccess}/>
+
       </Stack.Navigator>
     </NavigationContainer>
   );
